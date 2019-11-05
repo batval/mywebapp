@@ -11,15 +11,19 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+/**
+ * Created for JavaStudy.ru on 23.02.2016.
+ */
 @Controller
 public class FileUploadController {
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public @ResponseBody
-    String handleFileUpload(@RequestParam("file") MultipartFile file) {
+    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file) {
 
         if (!file.isEmpty()) {
+
             try {
+
                 byte[] fileBytes = file.getBytes();
                 String rootPath = System.getProperty("catalina.home");
                 System.out.println("Server rootPath: " + rootPath);
@@ -31,15 +35,15 @@ public class FileUploadController {
                 stream.write(fileBytes);
                 stream.close();
 
-                System.out.println("File is save under: " + rootPath + File.separator + file.getOriginalFilename());
+                System.out.println("File is saved under: " + rootPath + File.separator + file.getOriginalFilename());
                 return "File is saved under: " + rootPath + File.separator + file.getOriginalFilename();
-            } catch (Exception exception) {
-                exception.printStackTrace();
-                return "File upload is failed! " + exception.getMessage();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "File upload is failed: " + e.getMessage();
             }
         } else {
-            return "File upload is failed. File is empty";
+            return "File upload is failed: File is empty";
         }
-
     }
 }

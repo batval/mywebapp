@@ -13,13 +13,15 @@
     <!-- context:component-scan This tag will scan @Component, @Repository, @Service, @Controller
          and also resolves @Autowired and @Qualifier -->
     <context:component-scan base-package="webapp" />
+
     <!--
-            mvc:annotation-driven configures Spring MVC annotations
-            Support for validating @Controller inputs with @Valid, if a JSR-303 Provider is present on the classpath.
-            HttpMessageConverter support for @RequestBody method parameters and @ResponseBody method return values
-            from @RequestMapping or @ExceptionHandler methods.
-         -->
+        mvc:annotation-driven configures Spring MVC annotations
+        Support for validating @Controller inputs with @Valid, if a JSR-303 Provider is present on the classpath.
+        HttpMessageConverter support for @RequestBody method parameters and @ResponseBody method return values
+        from @RequestMapping or @ExceptionHandler methods.
+     -->
     <mvc:annotation-driven/>
+
 
     <!-- ViewResolver bean config for mapping strings to jsp views -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -38,7 +40,9 @@
     <!--Excel and PDF xml view configuration -->
     <bean class="org.springframework.web.servlet.view.XmlViewResolver">
         <property name="order" value="0" />
-        <property name="location" value="/WEB-INF/config/excel-pdf-config.xml"/>
+        <property name="location">
+            <value>/WEB-INF/config/excel-pdf-config.xml</value>
+        </property>
     </bean>
 
     <mvc:view-controller path="/index.html" view-name="/index"/>
