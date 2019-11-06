@@ -57,8 +57,9 @@
                         <li>
                             <a href="${file}">Загрузка файла PDF и Excel</a>
                         </li>
+                        <c:url value="/jdbc.html" var="jdbc"/>
                         <li>
-                            <a href="portfolio-2-col.html">Lesson 2</a>
+                            <a href="${jdbc}">JDBC c JDBCTemplates</a>
                         </li>
                         <li>
                             <a href="portfolio-3-col.html">Lesson 3</a>
