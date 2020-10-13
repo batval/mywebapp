@@ -20,7 +20,7 @@
         <spring-framework.version>4.2.4.RELEASE</spring-framework.version>
 
         <!-- JUnit test -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <!-- Logging -->
         <logback.version>1.0.13</logback.version>
